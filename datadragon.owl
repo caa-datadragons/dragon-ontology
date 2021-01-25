@@ -1,0 +1,1130 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://archaeology.link/ontology#"
+     xml:base="http://archaeology.link/ontology"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:wd="http://www.wikidata.org/entity/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:wdt="http://www.wikidata.org/prop/direct/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:wikibase="http://wikiba.se/ontology#">
+    <owl:Ontology rdf:about="http://archaeology.link/ontology#">
+        <dc:contributor>Florian Thiery</dc:contributor>
+        <dc:creator>Florian Thiery</dc:creator>
+        <dc:description>This ontology contains classes to descibe Data Dragons as Repository for Linked Data.</dc:description>
+        <dc:publisher>CAA SIG Data-Dragon, RGZM</dc:publisher>
+        <dc:rights>CC BY 4.0</dc:rights>
+        <dc:subject>Data Dragons</dc:subject>
+        <rdfs:comment>This ontology contains classes to descibe Data Dragons as Repository for Linked Data.</rdfs:comment>
+        <rdfs:label>The Data Dragon Ontology</rdfs:label>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.1</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/contributor -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/publisher -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/publisher"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/rights -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/rights"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/subject -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/subject"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#Resource -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://archaeology.link/ontology#entryLevel -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#entryLevel">
+        <rdfs:comment>entry level for a tool</rdfs:comment>
+        <rdfs:label>entry level</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#hasInput -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#hasInput">
+        <rdfs:comment>input of a pipe step</rdfs:comment>
+        <rdfs:label>has input</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#hasLegalType -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#hasLegalType">
+        <rdfs:domain rdf:resource="http://archaeology.link/ontology#DataDragonLair"/>
+        <rdfs:range rdf:resource="http://archaeology.link/ontology#RepositoryLegalType"/>
+        <rdfs:comment>legal type of a data repository</rdfs:comment>
+        <rdfs:label>has legal type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#hasOutput -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#hasOutput">
+        <rdfs:comment>output of a pipe step</rdfs:comment>
+        <rdfs:label>has output</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#hasQuality -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#hasQuality">
+        <rdfs:domain rdf:resource="http://archaeology.link/ontology#DataDragonLair"/>
+        <rdfs:range rdf:resource="http://archaeology.link/ontology#RepositoryQuality"/>
+        <rdfs:comment>fuzzy quality of a data repository</rdfs:comment>
+        <rdfs:label>has quality</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#hasType -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#hasType">
+        <rdfs:domain rdf:resource="http://archaeology.link/ontology#DataDragonLair"/>
+        <rdfs:range rdf:resource="http://archaeology.link/ontology#RepositoryType"/>
+        <rdfs:comment>type of a data repository</rdfs:comment>
+        <rdfs:label>has type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#inputFormat -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#inputFormat">
+        <rdfs:comment>input format for a software or tool</rdfs:comment>
+        <rdfs:label>input format</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#lairGroup -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#lairGroup">
+        <rdfs:domain rdf:resource="http://archaeology.link/ontology#DataDragonLair"/>
+        <rdfs:range rdf:resource="http://archaeology.link/ontology#RepositoryGroup"/>
+        <rdfs:comment>data repository belongs to group X</rdfs:comment>
+        <rdfs:label>lair group</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#lairState -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#lairState">
+        <rdfs:subPropertyOf rdf:resource="http://archaeology.link/ontology#status"/>
+        <rdfs:domain rdf:resource="http://archaeology.link/ontology#DataDragonLair"/>
+        <rdfs:range rdf:resource="http://archaeology.link/ontology#RepositoryState"/>
+        <rdfs:comment>status of a data repository (data dragon lair)</rdfs:comment>
+        <rdfs:label>lair state</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#language -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#language">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://archaeology.link/ontology#RepositoryLanguage"/>
+        <rdfs:comment>main language of a thing</rdfs:comment>
+        <rdfs:label>language</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#next -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#next">
+        <rdfs:comment>next chain step of a pipe</rdfs:comment>
+        <rdfs:label>next</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#outputFormat -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#outputFormat">
+        <rdfs:comment>output format for a software or tool</rdfs:comment>
+        <rdfs:label>output format</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#pipeState -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#pipeState">
+        <rdfs:subPropertyOf rdf:resource="http://archaeology.link/ontology#status"/>
+        <rdfs:comment>status of a pipe</rdfs:comment>
+        <rdfs:label>pipe state</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#status -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#status">
+        <rdfs:comment>status super property</rdfs:comment>
+        <rdfs:label>status</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#toolState -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#toolState">
+        <rdfs:subPropertyOf rdf:resource="http://archaeology.link/ontology#status"/>
+        <rdfs:comment>status of a tool</rdfs:comment>
+        <rdfs:label>tool state</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#usedBy -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#usedBy">
+        <owl:inverseOf rdf:resource="http://archaeology.link/ontology#uses"/>
+        <rdfs:comment>pipestep used by software or tool</rdfs:comment>
+        <rdfs:label>used by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#uses -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#uses">
+        <rdfs:comment>pipestep uses software or tool</rdfs:comment>
+        <rdfs:label>uses</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://archaeology.link/ontology#active -->
+
+    <owl:DatatypeProperty rdf:about="http://archaeology.link/ontology#active">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#apiendpoint -->
+
+    <owl:DatatypeProperty rdf:about="http://archaeology.link/ontology#apiendpoint">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <rdfs:comment>URL of the API entrypoint</rdfs:comment>
+        <rdfs:label>API endpoint</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#author -->
+
+    <owl:DatatypeProperty rdf:about="http://archaeology.link/ontology#author">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment>author or inventor or right holder</rdfs:comment>
+        <rdfs:label>author</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#consumesLOD -->
+
+    <owl:DatatypeProperty rdf:about="http://archaeology.link/ontology#consumesLOD">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>does the item consume LOD?</rdfs:comment>
+        <rdfs:label>consumes LOD</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#dateOfEntry -->
+
+    <owl:DatatypeProperty rdf:about="http://archaeology.link/ontology#dateOfEntry">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment>the date of database entry</rdfs:comment>
+        <rdfs:label>date of entry</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#dateOfModification -->
+
+    <owl:DatatypeProperty rdf:about="http://archaeology.link/ontology#dateOfModification">
+        <rdfs:comment>the date of a modification</rdfs:comment>
+        <rdfs:label>date of modification</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#description -->
+
+    <owl:DatatypeProperty rdf:about="http://archaeology.link/ontology#description">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment>a short description</rdfs:comment>
+        <rdfs:label>description</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#gitrepository -->
+
+    <owl:DatatypeProperty rdf:about="http://archaeology.link/ontology#gitrepository">
+        <rdfs:subPropertyOf rdf:resource="http://archaeology.link/ontology#link"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <rdfs:comment>a link to the git repository</rdfs:comment>
+        <rdfs:label>git repository</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#link -->
+
+    <owl:DatatypeProperty rdf:about="http://archaeology.link/ontology#link">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <rdfs:comment>a link for further information</rdfs:comment>
+        <rdfs:label>link</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#name -->
+
+    <owl:DatatypeProperty rdf:about="http://archaeology.link/ontology#name">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment>a name</rdfs:comment>
+        <rdfs:label>name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#prefix -->
+
+    <owl:DatatypeProperty rdf:about="http://archaeology.link/ontology#prefix">
+        <rdfs:comment>prefix</rdfs:comment>
+        <rdfs:label>prefix</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#producesLOD -->
+
+    <owl:DatatypeProperty rdf:about="http://archaeology.link/ontology#producesLOD">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>does the item produce LOD?</rdfs:comment>
+        <rdfs:label>produces LOD</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#retcat -->
+
+    <owl:DatatypeProperty rdf:about="http://archaeology.link/ontology#retcat">
+        <rdfs:comment>properties for the reference thesaurus catalogue</rdfs:comment>
+        <rdfs:label>retcat properties</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#retcatlabelURL -->
+
+    <owl:DatatypeProperty rdf:about="http://archaeology.link/ontology#retcatlabelURL">
+        <rdfs:subPropertyOf rdf:resource="http://archaeology.link/ontology#retcat"/>
+        <rdfs:comment>URL to get detail information about a resource</rdfs:comment>
+        <rdfs:label>retcat label URL</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#retcatqueryURL -->
+
+    <owl:DatatypeProperty rdf:about="http://archaeology.link/ontology#retcatqueryURL">
+        <rdfs:subPropertyOf rdf:resource="http://archaeology.link/ontology#retcat"/>
+        <rdfs:comment>URL to query a resource</rdfs:comment>
+        <rdfs:label>retcat query URL</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#sparqlendpoint -->
+
+    <owl:DatatypeProperty rdf:about="http://archaeology.link/ontology#sparqlendpoint">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <rdfs:comment>URL of the SPARQL endpoint</rdfs:comment>
+        <rdfs:label>SPARQL endpoint</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#wikidataid -->
+
+    <owl:DatatypeProperty rdf:about="http://archaeology.link/ontology#wikidataid">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#sameAs -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2002/07/owl#sameAs">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment>The property that determines that two given individuals are equal.</rdfs:comment>
+        <rdfs:label>same as</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://archaeology.link/ontology#DataDragonLair -->
+
+    <owl:Class rdf:about="http://archaeology.link/ontology#DataDragonLair">
+        <rdfs:subClassOf rdf:resource="https://www.wikidata.org/wiki/Q73901520"/>
+        <rdfs:comment>a repository that stores Linked Open Data</rdfs:comment>
+        <rdfs:label>Data Dragon Lair</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://archaeology.link/ontology#Dragons -->
+
+    <owl:Class rdf:about="http://archaeology.link/ontology#Dragons">
+        <rdfs:comment>Data Dragons Characteristic classes</rdfs:comment>
+        <rdfs:label>Data Dragons Characteristics</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://archaeology.link/ontology#RepositoryGroup -->
+
+    <owl:Class rdf:about="http://archaeology.link/ontology#RepositoryGroup">
+        <rdfs:subClassOf rdf:resource="http://archaeology.link/ontology#Dragons"/>
+        <rdfs:comment>some kind of grouping for repositories</rdfs:comment>
+        <rdfs:label>Repository Group</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://archaeology.link/ontology#RepositoryLanguage -->
+
+    <owl:Class rdf:about="http://archaeology.link/ontology#RepositoryLanguage">
+        <rdfs:subClassOf rdf:resource="http://archaeology.link/ontology#Dragons"/>
+        <rdfs:comment>main language of a repository</rdfs:comment>
+        <rdfs:label>Repository Language</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://archaeology.link/ontology#RepositoryLegalType -->
+
+    <owl:Class rdf:about="http://archaeology.link/ontology#RepositoryLegalType">
+        <rdfs:subClassOf rdf:resource="http://archaeology.link/ontology#Dragons"/>
+        <rdfs:comment>legal type of a repository</rdfs:comment>
+        <rdfs:label>Repository Legal Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://archaeology.link/ontology#RepositoryQuality -->
+
+    <owl:Class rdf:about="http://archaeology.link/ontology#RepositoryQuality">
+        <rdfs:subClassOf rdf:resource="http://archaeology.link/ontology#Dragons"/>
+        <rdfs:comment>quality of a repository</rdfs:comment>
+        <rdfs:label>Repository Quality</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://archaeology.link/ontology#RepositoryState -->
+
+    <owl:Class rdf:about="http://archaeology.link/ontology#RepositoryState">
+        <rdfs:subClassOf rdf:resource="http://archaeology.link/ontology#Dragons"/>
+        <rdfs:comment>status of a repository</rdfs:comment>
+        <rdfs:label>Repository Status</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://archaeology.link/ontology#RepositoryType -->
+
+    <owl:Class rdf:about="http://archaeology.link/ontology#RepositoryType">
+        <rdfs:subClassOf rdf:resource="http://archaeology.link/ontology#Dragons"/>
+        <rdfs:comment>type of a repository</rdfs:comment>
+        <rdfs:label>Repository Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q1235234 -->
+
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q1235234">
+        <rdfs:comment>digital archive of documents; database of digital research outputs</rdfs:comment>
+        <rdfs:label>document repository</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q73901520 -->
+
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q73901520">
+        <rdfs:subClassOf rdf:resource="https://www.wikidata.org/wiki/Q1235234"/>
+        <rdfs:comment>RDF Repository containing interesting Linked Open Data</rdfs:comment>
+        <rdfs:label>data dragon lair</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://archaeology.link/ontology#Administration -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#Administration">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryLegalType"/>
+        <rdfs:label>Administration</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#CSV -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#CSV">
+        <rdfs:label>CSV</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#CYPHER -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#CYPHER">
+        <rdfs:label>CYPHER</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#Collection -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#Collection">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryType"/>
+        <rdfs:label>Collection</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#CommandlineTool -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#CommandlineTool">
+        <rdfs:label>Commandline Tool</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#Community -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#Community">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryLegalType"/>
+        <rdfs:label>Community</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#GEOJSON -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#GEOJSON">
+        <rdfs:label>GEOJSON</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#Gazetteer -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#Gazetteer">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryType"/>
+        <rdfs:label>Gazetteer</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#HTML -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#HTML">
+        <rdfs:label>HTML</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#IIIF-JSON -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#IIIF-JSON">
+        <rdfs:label>IIIF-JSON</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#JPG -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#JPG">
+        <rdfs:label>JPG</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#JSON -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#JSON">
+        <rdfs:label>JSON</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#JSON-LD -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#JSON-LD">
+        <rdfs:label>JSON-LD</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#N3 -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#N3">
+        <rdfs:label>N3</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#PLAIN-TEXT -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#PLAIN-TEXT">
+        <rdfs:label>PLAIN TEXT</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#PNG -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#PNG">
+        <rdfs:label>PNG</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#PersonIndex -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#PersonIndex">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryType"/>
+        <rdfs:label xml:lang="en">Person Index</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#Plugin -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#Plugin">
+        <rdfs:label>Plugin Tool</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#RDF-XML -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#RDF-XML">
+        <rdfs:label>RDF-XML</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#ResearchInstitution -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#ResearchInstitution">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryLegalType"/>
+        <rdfs:label>Research Institution</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#SHAQL -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#SHAQL">
+        <rdfs:label>SHAQL</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#SHP -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#SHP">
+        <rdfs:label>SHP</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#SPARQL -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#SPARQL">
+        <rdfs:comment>any SPARQL query</rdfs:comment>
+        <rdfs:label>SPARQL</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#SPARQL-RESULTS -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#SPARQL-RESULTS">
+        <rdfs:comment>any result of a SPARQL query, e.g. as application/sparql-results+json or application/sparql-results+xml</rdfs:comment>
+        <rdfs:label>SPARQL RESULTS</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#SQL -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#SQL">
+        <rdfs:comment>any SQL query</rdfs:comment>
+        <rdfs:label>SQL</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#SQL-RESULT -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#SQL-RESULT">
+        <rdfs:comment>any result set as response of a SQL request</rdfs:comment>
+        <rdfs:label>SQL RESULT</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#SVG -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#SVG">
+        <rdfs:label>SVG</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#StandaloneTool -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#StandaloneTool">
+        <rdfs:label>Standalone Tool</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#TIFF -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#TIFF">
+        <rdfs:label>TIFF</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#TTL -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#TTL">
+        <rdfs:label>TTL</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#Thesaurus -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#Thesaurus">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryType"/>
+        <rdfs:label>Thesaurus</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#TimeGazetteer -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#TimeGazetteer">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryType"/>
+        <rdfs:label xml:lang="en">Time Gazetteer</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#UnknownToolType -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#UnknownToolType">
+        <rdfs:label>Unknown Tool Type</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#WebTool -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#WebTool">
+        <rdfs:label>Web Tool</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#X3D -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#X3D">
+        <rdfs:label>X3D</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#XML -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#XML">
+        <rdfs:label>XML</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#XML-TEI -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#XML-TEI">
+        <rdfs:label>XML-TEI</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#active -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#active">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryState"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#additionalinformationGroup -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#additionalinformationGroup">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryGroup"/>
+        <rdfs:label>Additional Information Group</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#advanced -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#advanced">
+        <rdfs:label>advanced</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#any3Dformat -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#any3Dformat">
+        <rdfs:label>any 3d format</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#audio-video -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#audio-video">
+        <rdfs:label>AUDIO + VIDEO</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#beginner -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#beginner">
+        <rdfs:label>beginner</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#chreferencethesauriGroup -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#chreferencethesauriGroup">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryGroup"/>
+        <rdfs:label>Cultural Heritale Thesauri Group</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#commandline -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#commandline">
+        <rdfs:label>command line</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#de -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#de">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryLanguage"/>
+        <rdfs:label>deutsch</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#deprecated -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#deprecated">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryState"/>
+        <rdfs:label>deprecated</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#en -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#en">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryLanguage"/>
+        <rdfs:label>english</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#end -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#end">
+        <rdfs:label>end</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#fr -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#fr">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryLanguage"/>
+        <rdfs:label>français</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#otherreferencethesauriGroup -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#otherreferencethesauriGroup">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryGroup"/>
+        <rdfs:label>other Reference Thesauri Group</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#prototype -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#prototype">
+        <rdfs:label>prototype</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#published -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#published">
+        <rdfs:label>published</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#qualityHigh -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#qualityHigh">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryQuality"/>
+        <rdfs:label>quality high</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#qualityLow -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#qualityLow">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryQuality"/>
+        <rdfs:label>quality low</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#qualityMedium -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#qualityMedium">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryQuality"/>
+        <rdfs:label>quality medium</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#start -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#start">
+        <rdfs:label>start</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#step -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#step">
+        <rdfs:label>step</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#testStatus -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#testStatus">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryState"/>
+        <rdfs:label>test</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#unknownFormat -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#unknownFormat">
+        <rdfs:comment>any unknown or not specified format</rdfs:comment>
+        <rdfs:label>unknown format</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#unknownLanguage -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#unknownLanguage">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryLanguage"/>
+        <rdfs:label>unknown language</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#unknownToolStatus -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#unknownToolStatus">
+        <rdfs:label>unknown tool status</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#unspecifiedGroup -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#unspecifiedGroup">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryGroup"/>
+        <rdfs:label>unspecified Group</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://archaeology.link/ontology#active">
+        <rdfs:label>active</rdfs:label>
+        <rdfs:comment>is the item active?</rdfs:comment>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
