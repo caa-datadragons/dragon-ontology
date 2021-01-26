@@ -765,16 +765,6 @@
     
 
 
-    <!-- http://archaeology.link/ontology#Dragons -->
-
-    <owl:Class rdf:about="http://archaeology.link/ontology#Dragons">
-        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
-        <rdfs:comment>Data Dragons Characteristic classes</rdfs:comment>
-        <rdfs:label>Data Dragons Characteristics</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- http://archaeology.link/ontology#GeographicLocation -->
 
     <owl:Class rdf:about="http://archaeology.link/ontology#GeographicLocation">
@@ -796,7 +786,7 @@
     <!-- http://archaeology.link/ontology#RepositoryGroup -->
 
     <owl:Class rdf:about="http://archaeology.link/ontology#RepositoryGroup">
-        <rdfs:subClassOf rdf:resource="http://archaeology.link/ontology#Dragons"/>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
         <rdfs:comment>some kind of grouping for repositories</rdfs:comment>
         <rdfs:label>Repository Group</rdfs:label>
     </owl:Class>
@@ -806,7 +796,7 @@
     <!-- http://archaeology.link/ontology#RepositoryLanguage -->
 
     <owl:Class rdf:about="http://archaeology.link/ontology#RepositoryLanguage">
-        <rdfs:subClassOf rdf:resource="http://archaeology.link/ontology#Dragons"/>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
         <rdfs:comment>main language of a repository</rdfs:comment>
         <rdfs:label>Repository Language</rdfs:label>
     </owl:Class>
@@ -816,7 +806,7 @@
     <!-- http://archaeology.link/ontology#RepositoryLegalType -->
 
     <owl:Class rdf:about="http://archaeology.link/ontology#RepositoryLegalType">
-        <rdfs:subClassOf rdf:resource="http://archaeology.link/ontology#Dragons"/>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
         <rdfs:comment>legal type of a repository</rdfs:comment>
         <rdfs:label>Repository Legal Type</rdfs:label>
     </owl:Class>
@@ -826,7 +816,7 @@
     <!-- http://archaeology.link/ontology#RepositoryQuality -->
 
     <owl:Class rdf:about="http://archaeology.link/ontology#RepositoryQuality">
-        <rdfs:subClassOf rdf:resource="http://archaeology.link/ontology#Dragons"/>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
         <rdfs:comment>quality of a repository</rdfs:comment>
         <rdfs:label>Repository Quality</rdfs:label>
     </owl:Class>
@@ -836,7 +826,7 @@
     <!-- http://archaeology.link/ontology#RepositoryState -->
 
     <owl:Class rdf:about="http://archaeology.link/ontology#RepositoryState">
-        <rdfs:subClassOf rdf:resource="http://archaeology.link/ontology#Dragons"/>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
         <rdfs:comment>status of a repository</rdfs:comment>
         <rdfs:label>Repository Status</rdfs:label>
     </owl:Class>
@@ -846,7 +836,7 @@
     <!-- http://archaeology.link/ontology#RepositoryType -->
 
     <owl:Class rdf:about="http://archaeology.link/ontology#RepositoryType">
-        <rdfs:subClassOf rdf:resource="http://archaeology.link/ontology#Dragons"/>
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
         <rdfs:comment>type of a repository</rdfs:comment>
         <rdfs:label>Repository Type</rdfs:label>
     </owl:Class>
