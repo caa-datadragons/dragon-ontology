@@ -174,9 +174,9 @@
     
 
 
-    <!-- hasPointGeometry -->
+    <!-- http://archaeology.link/hasPointGeometry -->
 
-    <owl:ObjectProperty rdf:about="hasPointGeometry">
+    <owl:ObjectProperty rdf:about="http://archaeology.link/hasPointGeometry">
         <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#hasGeometry"/>
         <rdfs:label xml:lang="en">has point geometry</rdfs:label>
         <skos:definition xml:lang="en">c.f. https://www.ogc.org/standards/geosparql, 1.0, OGC GeoSPARQL - A Geographic Query Language for RDF Data, 11-052r4, Annex B, B.1</skos:definition>
@@ -197,7 +197,7 @@
     <!-- http://archaeology.link/ontology#centroid -->
 
     <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#centroid">
-        <rdfs:subPropertyOf rdf:resource="hasPointGeometry"/>
+        <rdfs:subPropertyOf rdf:resource="http://archaeology.link/hasPointGeometry"/>
     </owl:ObjectProperty>
     
 
@@ -326,7 +326,7 @@
     <!-- http://archaeology.link/ontology#locatedAt -->
 
     <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#locatedAt">
-        <rdfs:subPropertyOf rdf:resource="hasPointGeometry"/>
+        <rdfs:subPropertyOf rdf:resource="http://archaeology.link/hasPointGeometry"/>
     </owl:ObjectProperty>
     
 
@@ -341,7 +341,10 @@
 
     <!-- http://www.w3.org/2002/07/owl#sameAs -->
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2002/07/owl#sameAs"/>
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2002/07/owl#sameAs">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:ObjectProperty>
     
 
 
@@ -654,10 +657,7 @@
 
     <!-- http://www.w3.org/2002/07/owl#sameAs -->
 
-    <owl:DatatypeProperty rdf:about="http://www.w3.org/2002/07/owl#sameAs">
-        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2002/07/owl#sameAs"/>
     
 
 
@@ -809,6 +809,16 @@
         <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
         <rdfs:comment>legal type of a repository</rdfs:comment>
         <rdfs:label>Repository Legal Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://archaeology.link/ontology#RepositoryLevel -->
+
+    <owl:Class rdf:about="http://archaeology.link/ontology#RepositoryLevel">
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+        <rdfs:label xml:lang="en">Repository Level</rdfs:label>
+        <skos:definition xml:lang="en">level of the repository</skos:definition>
     </owl:Class>
     
 
@@ -1271,6 +1281,33 @@ The notion of a SKOS concept is useful when describing the conceptual or intelle
     <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#fr">
         <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryLanguage"/>
         <rdfs:label>français</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#levelPrimary -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#levelPrimary">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryLevel"/>
+        <rdfs:label xml:lang="en">level primary</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#levelSecondary -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#levelSecondary">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryLevel"/>
+        <rdfs:label xml:lang="en">level secondary</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaeology.link/ontology#levelTertiary -->
+
+    <owl:NamedIndividual rdf:about="http://archaeology.link/ontology#levelTertiary">
+        <rdf:type rdf:resource="http://archaeology.link/ontology#RepositoryLevel"/>
+        <rdfs:label xml:lang="en">level tertiary</rdfs:label>
     </owl:NamedIndividual>
     
 
