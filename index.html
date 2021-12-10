@@ -1,0 +1,3582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Data Dragon Ontology</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAC40lEQVRYhe2UT0hUQRzHp6Iss1B3VZKIDbbdfW9mnoi4f3zzjkJQeOgS0SEIb1EWBGGlLLu460zQPQM1unUIIjA6rfpm6ZAhHjoIRVQUFUlEbG+euTsdXG1d3VL3bVD4g+9h+L35fT/8fvN7ADgY9aHY5fpIvK82HO9ysu66wxWOzbkjcekKx0a2ALYA/n2AGi3a6ArFezcidziecQygNhhrcUficjP6PwBqtGijKxy/thnVBePHywYoDsFhl53GV8SEcsTx4usCMLUewTVpc23BNvEzm6Neyf1+KcG2vwqwUjgrOJq2JmHftwmkVBRGTvncFodnbI7vChO/FRznCmHsNM7aHM9Yk7Df5iqsLMw9sMNOK2g+jS4IEz0UJv4iuJZb2RltWnB4UZqH6ioGAgAAGe5vtiZhtzDx7OoRadLmeM7m6IRjhnLMW2Vx1bA5GhAmnhIcz6/xNj4Ujsky8UspwfayjDPjsF2Y6L7N8Vzx/BfP+KPg6LbgSqd8DnfJW2CnbaLhfH5ephpqygJYvQU4Z3P82TLRsDDhUTnmrSq+Y3N0Mg+Xldy/zwEAnLMWZ3pHpNExmfLs/t0dOdVcbT0JeKxUwFP2VljjqiE47Jp53LTXNxhsUZjerTByXWX6VZWRs/4bIQ2ACv+UAomgDzLCISNZxAxZKMhIDjLy1JfsaK+I+eGBUBNk5E2x8RogX/PdcDZUqieWTSh5D6nOVKqfhoycUmlHFFIyu5RXqf7AcQDISCpv/tqbMBqK883RtmpISRoxQyJKPgGn3wNk5NEigDFa6hslqV/Kj+FdBQD0bshIDlKSLlVcoWQo36UhR80BAMB73lulMn0EMpJTqD6qJiOt3mho/8GbkT2BZNgDB/V+RI0fkOrT3kRIVQbaDizJm2hdNbINBxwk5xAj3yEjuV9rZ1iIkgxixkLBA83mz8uCjLwoGwAx0vOnFSy5mtR4VTaAQvVORMnwZgSpzkrV/QmdE2tKe46+MQAAAABJRU5ErkJggg==">
+    <link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABhklEQVQ4jbWPzStEURjG3yQLirlGKUnKFO45Z+SjmXvnnmthQcpCoVhYmD/AwmJiI3OvZuZc2U3UlKU0/gAslMw9JgvhHxAr2fko7r0jHSsl+TgbTz2Lt5731/MASEiJW9ONml2QyX6rsGalmnT74v8BDf12hxJfpV8d1uwNKUBYszabdFv84L8B9X0rESVmmUup2fme0cVhJWaZHw4NWL1Sew
+EAfDe6H3Dy6Ll456WEJsRZS630MwCAOI20ei5OBpxse5zcBZw8eS4uPpfIuDiCainIg9umBCU0GZzgLZ9Hn31OgoATL+CkLDGB5H1OKj4nFd/FBxUXJ0UZNb4edw/6nLyJXaj5FeCVyPLNIVmYK8TG1IwWb16L1gEACAFV90ftoT8bdOX0EeyY99gxBXZMgRz6qGb1KantAACI0UvE6F5XJqEjpsdURouI0Vt5gGOUkUNnPu7ObGIIMfNaGqDmjDRi9FZldF1lRgYzeqUyeoiY4ag5Iy3RgOYRM8+/M2bG8efsO4hGrpmJseyMAAAAAElFTkSuQmCC">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
+    <style>
+        #pylode {
+            position: fixed;
+            top: 130px;
+            left: -60px;
+            font-size: small;
+            transform: rotate(-90deg);
+            color: grey;
+        }
+        #pylode a {
+            font-size: 2em;
+            font-weight: bold;
+            text-decoration: none;
+            color: #005A9C;
+        }
+        #pylode a:hover {
+            color: #333;
+        }
+
+        .cardinality {
+            font-style: italic;
+            color: #aa00aa;
+        }
+
+        dt {
+            font-weight: bold;
+            padding: 5px 0 5px 0;
+        }
+
+        ul.hlist {
+            list-style-type: none;
+            border: 1px solid navy;
+            padding:5px;
+            background-color: #F4FFFF;
+        }
+
+        ul.hierarchy {
+            border: 1px solid navy;
+            padding: 5px 25px 5px 25px;
+            background-color: #F4FFFF;
+        }
+
+
+        ul.hlist li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .entity {
+            border: 1px solid navy;
+            margin:5px 0 5px 0;
+            padding: 5px;
+        }
+
+        .entity th {
+            width: 150px;
+            vertical-align: top;
+        }
+
+        .entity th,
+        .entity td {
+            padding-bottom: 20px;
+        }
+
+        .entity table th {
+            text-align: left;
+        }
+
+        section#overview img {
+            max-width: 1000px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            text-align: left
+        }
+        h1, h2, h3 {
+            color: #005A9C; background: white
+        }
+        h1 {
+            font: 170% sans-serif;
+            line-height: 110%;
+        }
+        h2 {
+            font: 140% sans-serif;
+            margin-top:40px;
+        }
+        h3 {
+            font: 120% sans-serif;
+            margin-top: 3px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid navy;
+        }
+        h4 { font: bold 100% sans-serif }
+        h5 { font: italic 100% sans-serif }
+        h6 { font: small-caps 100% sans-serif }
+
+
+        body {
+            padding: 2em 70px 2em 70px;
+            margin: 0;
+            font-family: sans-serif;
+            color: black;
+            background: white;
+            background-position: top left;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            text-align: justify;
+        }
+
+        section {
+            max-width: 1500px;
+        }
+
+        .figure {
+            margin-bottom: 20px;
+        }
+
+        :link { color: #00C; background: transparent }
+        :visited { color: #609; background: transparent }
+        a:active { color: #C00; background: transparent }
+
+        .sup-c,
+        .sup-op,
+        .sup-fp,
+        .sup-dp,
+        .sup-ap,
+        .sup-p,
+        .sup-ni,
+        .sup-con,
+        .sup-col {
+            cursor:help;
+            margin-left: 3px;
+        }
+
+        .sup-c {
+            color:orange;
+        }
+
+        .sup-op {
+            color:navy;
+        }
+
+        .sup-fp {
+            color:lightskyblue;
+        }
+
+        .sup-dp {
+            color:green;
+        }
+
+        .sup-ap {
+            color:darkred;
+        }
+
+        .sup-p {
+            color:black;
+        }
+
+        .sup-ni {
+            color:brown;
+        }
+
+        .sup-con {
+            color:orange;
+        }
+
+        .sup-col {
+            color:darkred;
+        }
+
+        code {
+            font-size: large;
+            color: darkred;
+        }
+
+        /* less prominent links for properties */
+        .proplink {
+            color: #336;
+            text-decoration: none;
+        }
+    </style>
+    
+    <script type="application/ld+json">
+      [
+  {
+    "@id": "http://archaeology.link/ontology#",
+    "@type": [
+      "https://schema.org/DefinedTermSet"
+    ],
+    "https://schema.org/description": [
+      {
+        "@value": "<p>This ontology contains classes to descibe Data Dragons as Repository for Linked Data.</p>"
+      }
+    ],
+    "https://schema.org/name": [
+      {
+        "@value": "The Data Dragon Ontology"
+      }
+    ]
+  }
+]
+    </script>
+</head>
+<body>
+  <div id="pylode">made by <a href="http://github.com/rdflib/pyLODE">
+    <span style="color:#329545;">p</span><span style="color:#f9cb33;">y</span>LODE</a>
+    <span style="font-size:smaller;">2.12.0</span>
+  </div>
+  <h1>The Data Dragon Ontology</h1>
+<section id="metadata">
+    <h2 style="display:none;">Metadata</h2>
+    <dl>
+        <dt>URI</dt>
+        <dd><code>http://archaeology.link/ontology#</code></dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/publisher">Publisher</a>(s)</dt>
+        <dd>
+            CAA SIG Data-Dragon, RGZM<br/>
+        </dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/creator">Creator</a>(s)</dt>
+        <dd>
+            Florian Thiery<br/>
+        </dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/contributor">Contributor</a>(s)</dt>
+        <dd>
+            Florian Thiery<br/>
+        </dd>
+        <dt>Version Information</dt>
+        <dd>0.1</dd>
+        <dt>Ontology RDF</dt>
+        <dd><a href="datadragon.owl">RDF (xml)</a></dd>
+    </dl>
+    <h2>Description</h2>
+    <div id="description">
+        <p>This ontology contains classes to descibe Data Dragons as Repository for Linked Data.</p>
+    </div>
+</section>
+<section id="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#objectproperties">Object Properties</a></li>
+        <li><a href="#datatypeproperties">Datatype Properties</a></li>
+        <li><a href="#annotationproperties">Annotation Properties</a></li>
+        <li><a href="#namedindividuals">Named Individuals</a></li>
+        <li><a href="#namespaces">Namespaces</a></li>
+        <li><a href="#legend">Legend</a></li>
+    </ol>
+</section>
+<section id="overview">
+    <h2>Overview</h2>
+    <div class="figure">
+        <div style="width:500px; height:50px; background-color: lightgrey; border:solid 2px grey; padding:10px;margin-bottom:5px; text-align:center;">Pictures say 1,000 words</div>
+        <div class="caption"><strong>Figure 1:</strong> Ontology overview</div>
+    </div>
+</section>
+  <section id="classes">
+    <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+      <li><a href="http://academic-meta-tool.xyz/vocab#Concept">amt:Concept</a></li>
+      <li><a href="http://academic-meta-tool.xyz/vocab#Role">amt:Role</a></li>
+      <li><a href="#AcademicMetaToolEntity">Academic Meta Tool Entity</a></li>
+      <li><a href="#Actor">Actor</a></li>
+      <li><a href="#ActorEntity">Actor Entity</a></li>
+      <li><a href="#DataDragonCollection">Data Dragon Collection</a></li>
+      <li><a href="#DataDragonItem">Data Dragon Item</a></li>
+      <li><a href="#DataDragonLair">Data Dragon Lair</a></li>
+      <li><a href="#DataDragonPlace">Data Dragon Place</a></li>
+      <li><a href="#GeographicLocation">Geographic Location</a></li>
+      <li><a href="#Place">Place</a></li>
+      <li><a href="#RepositoryGroup">Repository Group</a></li>
+      <li><a href="#RepositoryLanguage">Repository Language</a></li>
+      <li><a href="#RepositoryLegalType">Repository Legal Type</a></li>
+      <li><a href="#RepositoryLevel">Repository Level</a></li>
+      <li><a href="#RepositoryQuality">Repository Quality</a></li>
+      <li><a href="#RepositoryStatus">Repository Status</a></li>
+      <li><a href="#RepositoryType">Repository Type</a></li>
+      <li><a href="http://www.cidoc-crm.org/cidoc-crm/E1_CRM_Entity">crm:E1_CRM_Entity</a></li>
+      <li><a href="http://www.cidoc-crm.org/cidoc-crm/E39_Actor">crm:E39_Actor</a></li>
+      <li><a href="http://www.cidoc-crm.org/cidoc-crm/E53_Place">crm:E53_Place</a></li>
+      <li><a href="http://www.cidoc-crm.org/cidoc-crm/E55_Type">crm:E55_Type</a></li>
+      <li><a href="http://www.cidoc-crm.org/cidoc-crm/E5_Event">crm:E5_Event</a></li>
+      <li><a href="http://www.opengis.net/ont/geosparql#Feature">geosparql:Feature</a></li>
+      <li><a href="http://www.opengis.net/ont/geosparql#Geometry">geosparql:Geometry</a></li>
+      <li><a href="http://www.opengis.net/ont/geosparql#SpatialObject">geosparql:SpatialObject</a></li>
+      <li><a href="http://www.opengis.net/ont/sf#MultiLineString">sf:MultiLineString</a></li>
+      <li><a href="http://www.opengis.net/ont/sf#MultiPoint">sf:MultiPoint</a></li>
+      <li><a href="http://www.opengis.net/ont/sf#MultiPolygon">sf:MultiPolygon</a></li>
+      <li><a href="http://www.opengis.net/ont/sf#Point">sf:Point</a></li>
+      <li><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property">rdf:Property</a></li>
+      <li><a href="http://www.w3.org/2000/01/rdf-schema#Class">rdfs:Class</a></li>
+      <li><a href="http://www.w3.org/2004/02/skos/core#Collection">skos:Collection</a></li>
+      <li><a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></li>
+      <li><a href="http://www.w3.org/2004/02/skos/core#ConceptScheme">skos:ConceptScheme</a></li>
+      <li><a href="http://www.w3.org/ns/prov#Activity">prov:Activity</a></li>
+      <li><a href="http://www.w3.org/ns/prov#Agent">prov:Agent</a></li>
+      <li><a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a></li>
+      <li><a href="http://www.w3.org/ns/prov#Organization">prov:Organization</a></li>
+      <li><a href="http://www.w3.org/ns/prov#Person">prov:Person</a></li>
+      <li><a href="http://www.w3.org/ns/prov#SoftwareAgent">prov:SoftwareAgent</a></li>
+      <li><a href="http://xmlns.com/foaf/0.1/Group">foaf:Group</a></li>
+      <li><a href="http://xmlns.com/foaf/0.1/Organization">foaf:Organization</a></li>
+      <li><a href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a></li>
+      <li><a href="http://xmlns.com/foaf/0.1/Project">foaf:Project</a></li>
+      <li><a href="https://pleiades.stoa.org/places/vocab#Place">https://pleiades.stoa.org/places/vocab#Place</a></li>
+      <li><a href="https://www.w3.org/2000/01/rdf-schema#Resource">https://www.w3.org/2000/01/rdf-schema#Resource</a></li>
+    </ul>
+    <div class="entity class" id="Concept">
+        <h3>
+          Concept<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Concept" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://academic-meta-tool.xyz/vocab#Concept</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Class">rdfs:Class</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Role">
+        <h3>
+          Role<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Role" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://academic-meta-tool.xyz/vocab#Role</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A vague edge which is part of a triple.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property">rdf:Property</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="AcademicMetaToolEntity">
+        <h3>
+          Academic Meta Tool Entity<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#AcademicMetaToolEntity" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#AMT_Entity</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E1_CRM_Entity">crm:E1_CRM_Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Class">rdfs:Class</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property">rdf:Property</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Actor">
+        <h3>
+          Actor<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Actor" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#Actor</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E39_Actor">crm:E39_Actor</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#ActorEntity">Actor Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ActorEntity">
+        <h3>
+          Actor Entity<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#ActorEntity" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#ActorEntity</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#Actor">Actor</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Agent">prov:Agent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="DataDragonCollection">
+        <h3>
+          Data Dragon Collection<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#DataDragonCollection" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#DataDragonCollection</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Collection">skos:Collection</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="DataDragonItem">
+        <h3>
+          Data Dragon Item<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#DataDragonItem" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#DataDragonItem</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A repository item of a Data Dragon Lair.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E5_Event">crm:E5_Event</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E39_Actor">crm:E39_Actor</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E53_Place">crm:E53_Place</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="DataDragonLair">
+        <h3>
+          Data Dragon Lair<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#DataDragonLair" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#DataDragonLair</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A repository that stores Linked Open Data.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme">skos:ConceptScheme</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="#haslegaltype">has legal type</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#lairstate">lair state</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#lairgroup">lair group</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#hasquality">has quality</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#hastype">has type</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="DataDragonPlace">
+        <h3>
+          Data Dragon Place<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#DataDragonPlace" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#DataDragonPlace</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A repository geospatial item of a Data Dragon Lair.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#GeographicLocation">Geographic Location</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="GeographicLocation">
+        <h3>
+          Geographic Location<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#GeographicLocation" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#GeographicLocation</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#Place">Place</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#DataDragonPlace">Data Dragon Place</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Place">
+        <h3>
+          Place<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Place" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#Place</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Data Dragon Place</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://pleiades.stoa.org/places/vocab#Place">https://pleiades.stoa.org/places/vocab#Place</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#GeographicLocation">Geographic Location</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="RepositoryGroup">
+        <h3>
+          Repository Group<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#RepositoryGroup" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#RepositoryGroup</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>some kind of grouping for repositories</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E55_Type">crm:E55_Type</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#lairgroup">lair group</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://archaeology.link/ontology#additionalinformationGroup">additionalinformationGroup</a><br/>
+                    <a href="http://archaeology.link/ontology#unspecifiedGroup">unspecifiedGroup</a><br/>
+                    <a href="http://archaeology.link/ontology#chreferencethesauriGroup">chreferencethesauriGroup</a><br/>
+                    <a href="http://archaeology.link/ontology#otherreferencethesauriGroup">otherreferencethesauriGroup</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="RepositoryLanguage">
+        <h3>
+          Repository Language<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#RepositoryLanguage" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#RepositoryLanguage</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>main language of a repository</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E55_Type">crm:E55_Type</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#language">language</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://archaeology.link/ontology#unknownLanguage">unknownLanguage</a><br/>
+                    <a href="http://archaeology.link/ontology#de">de</a><br/>
+                    <a href="http://archaeology.link/ontology#en">en</a><br/>
+                    <a href="http://archaeology.link/ontology#fr">fr</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="RepositoryLegalType">
+        <h3>
+          Repository Legal Type<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#RepositoryLegalType" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#RepositoryLegalType</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>legal type of a repository</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E55_Type">crm:E55_Type</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#haslegaltype">has legal type</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://archaeology.link/ontology#ResearchInstitution">ResearchInstitution</a><br/>
+                    <a href="http://archaeology.link/ontology#Community">Community</a><br/>
+                    <a href="http://archaeology.link/ontology#Administration">Administration</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="RepositoryLevel">
+        <h3>
+          Repository Level<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#RepositoryLevel" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#RepositoryLevel</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>level of the repository</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E55_Type">crm:E55_Type</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://archaeology.link/ontology#levelTertiary">levelTertiary</a><br/>
+                    <a href="http://archaeology.link/ontology#levelSecondary">levelSecondary</a><br/>
+                    <a href="http://archaeology.link/ontology#levelPrimary">levelPrimary</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="RepositoryQuality">
+        <h3>
+          Repository Quality<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#RepositoryQuality" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#RepositoryQuality</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>quality of a repository</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E55_Type">crm:E55_Type</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#hasquality">has quality</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://archaeology.link/ontology#qualityLow">qualityLow</a><br/>
+                    <a href="http://archaeology.link/ontology#qualityHigh">qualityHigh</a><br/>
+                    <a href="http://archaeology.link/ontology#qualityMedium">qualityMedium</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="RepositoryStatus">
+        <h3>
+          Repository Status<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#RepositoryStatus" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#RepositoryState</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>status of a repository</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E55_Type">crm:E55_Type</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#lairstate">lair state</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://archaeology.link/ontology#deprecated">deprecated</a><br/>
+                    <a href="http://archaeology.link/ontology#active">active</a><br/>
+                    <a href="http://archaeology.link/ontology#testStatus">testStatus</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="RepositoryType">
+        <h3>
+          Repository Type<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#RepositoryType" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#RepositoryType</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>type of a repository</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E55_Type">crm:E55_Type</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#hastype">has type</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://archaeology.link/ontology#Gazetteer">Gazetteer</a><br/>
+                    <a href="http://archaeology.link/ontology#TimeGazetteer">TimeGazetteer</a><br/>
+                    <a href="http://archaeology.link/ontology#Collection">Collection</a><br/>
+                    <a href="http://archaeology.link/ontology#PersonIndex">PersonIndex</a><br/>
+                    <a href="http://archaeology.link/ontology#Thesaurus">Thesaurus</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="CRMEntity">
+        <h3>
+          CRM Entity<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#CRMEntity" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.cidoc-crm.org/cidoc-crm/E1_CRM_Entity</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>This class comprises all things in the universe of discourse of the CIDOC Conceptual Reference Model. It is an abstract concept providing for three general properties:</p>
+<ol>
+<li>Identification by name or appellation, and in particular by a preferred identifier</li>
+<li>Classification by type, allowing further refinement of the specific subclass an instance belongs to</li>
+<li>Attachment of free text for the expression of anything not captured by formal properties</li>
+</ol>
+<p>With the exception of E59 Primitive Value, all other classes within the CRM are directly or indirectly specialisations of E1 CRM Entity.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#Collection">skos:Collection</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme">skos:ConceptScheme</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#AcademicMetaToolEntity">Academic Meta Tool Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="E39_Actor">
+        <h3>
+          Actor<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#E39_Actor" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.cidoc-crm.org/cidoc-crm/E39_Actor</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>This class comprises people, either individually or in groups, who have the potential to perform intentional actions of kinds for which someone may be held responsible. The CRM does not attempt to model the inadvertent actions of such actors. Individual people should be documented as instances of E21 Person, whereas groups should be documented as instances of either E74 Group or its subclass E40 Legal Body.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#DataDragonItem">Data Dragon Item</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#Actor">Actor</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="E53_Place">
+        <h3>
+          Place<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#E53_Place" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.cidoc-crm.org/cidoc-crm/E53_Place</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>This class comprises extents in space, in particular on the surface of the earth, in the pure sense of physics: independent from temporal phenomena and matter.
+        The instances of E53 Place are usually determined by reference to the position of “immobile” objects such as buildings, cities, mountains, rivers, or dedicated geodetic marks. A Place can be determined by combining a frame of reference and a location with respect to this frame. It may be identified by one or more instances of E44 Place Appellation.
+         It is sometimes argued that instances of E53 Place are best identified by global coordinates or absolute reference systems. However, relative references are often more relevant in the context of cultural documentation and tend to be more precise. In particular, we are often interested in position in relation to large, mobile objects, such as ships. For example, the Place at which Nelson died is known with reference to a large mobile object – H.M.S Victory. A resolution of this Place in terms of absolute coordinates would require knowledge of the movements of the vessel and the precise time of death, either of which may be revised, and the result would lack historical and cultural relevance.
+        Any object can serve as a frame of reference for E53 Place determination. The model foresees the notion of a "section" of an E19 Physical Object as a valid E53 Place determination.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#DataDragonItem">Data Dragon Item</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.opengis.net/ont/geosparql#SpatialObject">geosparql:SpatialObject</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Type">
+        <h3>
+          Type<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Type" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.cidoc-crm.org/cidoc-crm/E55_Type</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>This class comprises concepts denoted by terms from thesauri and controlled vocabularies used to characterize and classify instances of CRM classes. Instances of E55 Type represent concepts  in contrast to instances of E41 Appellation which are used to name instances of CRM classes. E55 Type is the CRM’s interface to domain specific ontologies and thesauri. These can be represented in the CRM as subclasses of E55 Type, forming hierarchies of terms, i.e. instances of E55 Type linked via P127 has broader  term (has narrower term). Such hierarchies may be extended with additional properties.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#RepositoryLevel">Repository Level</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#RepositoryLanguage">Repository Language</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#RepositoryQuality">Repository Quality</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#RepositoryStatus">Repository Status</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#RepositoryLegalType">Repository Legal Type</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#RepositoryType">Repository Type</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#RepositoryGroup">Repository Group</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Event">
+        <h3>
+          Event<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Event" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.cidoc-crm.org/cidoc-crm/E5_Event</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#DataDragonItem">Data Dragon Item</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://xmlns.com/foaf/0.1/Project">foaf:Project</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#Activity">prov:Activity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Feature">
+        <h3>
+          Feature<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Feature" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.opengis.net/ont/geosparql#Feature</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.opengis.net/ont/geosparql#SpatialObject">geosparql:SpatialObject</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Geometry">
+        <h3>
+          Geometry<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Geometry" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.opengis.net/ont/geosparql#Geometry</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.opengis.net/ont/geosparql#SpatialObject">geosparql:SpatialObject</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="SpatialObject">
+        <h3>
+          Spatial Object<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#SpatialObject" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.opengis.net/ont/geosparql#SpatialObject</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E53_Place">crm:E53_Place</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.opengis.net/ont/sf#MultiPolygon">sf:MultiPolygon</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.opengis.net/ont/geosparql#Feature">geosparql:Feature</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.opengis.net/ont/sf#MultiLineString">sf:MultiLineString</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.opengis.net/ont/geosparql#Geometry">geosparql:Geometry</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.opengis.net/ont/sf#Point">sf:Point</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="https://pleiades.stoa.org/places/vocab#Place">https://pleiades.stoa.org/places/vocab#Place</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.opengis.net/ont/sf#MultiPoint">sf:MultiPoint</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="MultiLine">
+        <h3>
+          Multi Line<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#MultiLine" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.opengis.net/ont/sf#MultiLineString</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.opengis.net/ont/geosparql#SpatialObject">geosparql:SpatialObject</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="MultiPoint">
+        <h3>
+          Multi Point<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#MultiPoint" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.opengis.net/ont/sf#MultiPoint</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.opengis.net/ont/geosparql#SpatialObject">geosparql:SpatialObject</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="MultiPolygon">
+        <h3>
+          Multi Polygon<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#MultiPolygon" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.opengis.net/ont/sf#MultiPolygon</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.opengis.net/ont/geosparql#SpatialObject">geosparql:SpatialObject</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Point">
+        <h3>
+          Point<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Point" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.opengis.net/ont/sf#Point</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.opengis.net/ont/geosparql#SpatialObject">geosparql:SpatialObject</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Property">
+        <h3>
+          Property<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Property" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#Property</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#AcademicMetaToolEntity">Academic Meta Tool Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://academic-meta-tool.xyz/vocab#Role">amt:Role</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="#language">language</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#broaderTransitive">skos:broaderTransitive</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#hastype">has type</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#narrowerTransitive">skos:narrowerTransitive</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#placeofinterest(POI)">place of interest (POI)</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#haslegaltype">has legal type</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasInformedBy">prov:wasInformedBy</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#closeMatch">skos:closeMatch</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#lairgroup">lair group</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#related">skos:related</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#lairstate">lair state</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasDerivedFrom">prov:wasDerivedFrom</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#broader">skos:broader</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#exactMatch">exactMatch</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#hasEPSGcode">has EPSG code</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#hasnarroweritem">has narrower item</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#hasexactgeometry">has exact geometry</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#actedOnBehalfOf">prov:actedOnBehalfOf</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.opengis.net/ont/geosparql#hasGeometry">geosparql:hasGeometry</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://archaeology.link/hasPointGeometry">http://archaeology.link/hasPointGeometry</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#narrowMatch">skos:narrowMatch</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAttributedTo">prov:wasAttributedTo</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#isindragonlair">is in dragon lair</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#hasbroaderitem">has broader item</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#broadMatch">skos:broadMatch</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#mappingRelation">skos:mappingRelation</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#relatedMatch">skos:relatedMatch</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#narrower">skos:narrower</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#clusteredArea">clusteredArea</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#hasquality">has quality</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#locatedAt">locatedAt</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.wikidata.org/prop/direct/P2888">wdt:P2888</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.w3.org/2002/07/owl#sameAs">owl:sameAs</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#semanticRelation">skos:semanticRelation</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#exactMatch">skos:exactMatch</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#centroid">centroid</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#description1">description</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="http://www.opengis.net/ont/geosparql#asWKT">geosparql:asWKT</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="#author">author</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="http://www.opengis.net/ont/geosparql#asGeoJSON">geosparql:asGeoJSON</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#startedAtTime">prov:startedAtTime</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#endedAtTime">prov:endedAtTime</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="#dateofmodification">date of modification</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="#wikidataid">wikidataid</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="#dateofentry">date of entry</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="#SPARQLendpoint">SPARQL endpoint</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="#APIendpoint">API endpoint</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="#link">link</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="#name">name</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="#prefix">prefix</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#prefLabel">skos:prefLabel</a><sup class="sup-ap" title="annotation property">ap</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#altLabel">skos:altLabel</a><sup class="sup-ap" title="annotation property">ap</sup><br/>
+                    <a href="#preferreddescription">preferred description</a><sup class="sup-ap" title="annotation property">ap</sup><br/>
+                    <a href="http://purl.org/dc/elements/1.1/contributor">dc:contributor</a><sup class="sup-ap" title="annotation property">ap</sup><br/>
+                    <a href="http://purl.org/dc/elements/1.1/publisher">dc:publisher</a><sup class="sup-ap" title="annotation property">ap</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#definition">skos:definition</a><sup class="sup-ap" title="annotation property">ap</sup><br/>
+                    <a href="#description">description</a><sup class="sup-ap" title="annotation property">ap</sup><br/>
+                    <a href="http://purl.org/dc/elements/1.1/rights">dc:rights</a><sup class="sup-ap" title="annotation property">ap</sup><br/>
+                    <a href="#preferredlabel">preferred label</a><sup class="sup-ap" title="annotation property">ap</sup><br/>
+                    <a href="http://purl.org/dc/elements/1.1/subject">dc:subject</a><sup class="sup-ap" title="annotation property">ap</sup><br/>
+                    <a href="http://purl.org/dc/elements/1.1/description">dc:description</a><sup class="sup-ap" title="annotation property">ap</sup><br/>
+                    <a href="http://purl.org/dc/elements/1.1/creator">dc:creator</a><sup class="sup-ap" title="annotation property">ap</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#scopeNote">skos:scopeNote</a><sup class="sup-ap" title="annotation property">ap</sup><br/>
+                    <a href="#label">label</a><sup class="sup-ap" title="annotation property">ap</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Class">
+        <h3>
+          Class<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Class" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2000/01/rdf-schema#Class</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#AcademicMetaToolEntity">Academic Meta Tool Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://academic-meta-tool.xyz/vocab#Concept">amt:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://xmlns.com/foaf/0.1/Group">foaf:Group</a><br/>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E1_CRM_Entity">crm:E1_CRM_Entity</a><br/>
+                    <a href="#GeographicLocation">Geographic Location</a><br/>
+                    <a href="http://www.opengis.net/ont/geosparql#SpatialObject">geosparql:SpatialObject</a><br/>
+                    <a href="#RepositoryGroup">Repository Group</a><br/>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E53_Place">crm:E53_Place</a><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme">skos:ConceptScheme</a><br/>
+                    <a href="#AcademicMetaToolEntity">Academic Meta Tool Entity</a><br/>
+                    <a href="http://xmlns.com/foaf/0.1/Project">foaf:Project</a><br/>
+                    <a href="#DataDragonLair">Data Dragon Lair</a><br/>
+                    <a href="http://www.opengis.net/ont/sf#MultiLineString">sf:MultiLineString</a><br/>
+                    <a href="http://www.w3.org/ns/prov#Person">prov:Person</a><br/>
+                    <a href="#DataDragonItem">Data Dragon Item</a><br/>
+                    <a href="http://www.w3.org/ns/prov#Organization">prov:Organization</a><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><br/>
+                    <a href="http://academic-meta-tool.xyz/vocab#Role">amt:Role</a><br/>
+                    <a href="http://www.w3.org/ns/prov#Agent">prov:Agent</a><br/>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Class">rdfs:Class</a><br/>
+                    <a href="#RepositoryLanguage">Repository Language</a><br/>
+                    <a href="http://www.w3.org/ns/prov#Activity">prov:Activity</a><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#Collection">skos:Collection</a><br/>
+                    <a href="http://www.opengis.net/ont/geosparql#Geometry">geosparql:Geometry</a><br/>
+                    <a href="#RepositoryLevel">Repository Level</a><br/>
+                    <a href="http://www.opengis.net/ont/sf#Point">sf:Point</a><br/>
+                    <a href="https://pleiades.stoa.org/places/vocab#Place">https://pleiades.stoa.org/places/vocab#Place</a><br/>
+                    <a href="#RepositoryLegalType">Repository Legal Type</a><br/>
+                    <a href="http://xmlns.com/foaf/0.1/Organization">foaf:Organization</a><br/>
+                    <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property">rdf:Property</a><br/>
+                    <a href="#ActorEntity">Actor Entity</a><br/>
+                    <a href="http://academic-meta-tool.xyz/vocab#Concept">amt:Concept</a><br/>
+                    <a href="#Actor">Actor</a><br/>
+                    <a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a><br/>
+                    <a href="https://www.w3.org/2000/01/rdf-schema#Resource">https://www.w3.org/2000/01/rdf-schema#Resource</a><br/>
+                    <a href="#RepositoryStatus">Repository Status</a><br/>
+                    <a href="#Place">Place</a><br/>
+                    <a href="http://www.w3.org/ns/prov#SoftwareAgent">prov:SoftwareAgent</a><br/>
+                    <a href="http://www.opengis.net/ont/sf#MultiPolygon">sf:MultiPolygon</a><br/>
+                    <a href="#DataDragonPlace">Data Dragon Place</a><br/>
+                    <a href="#RepositoryQuality">Repository Quality</a><br/>
+                    <a href="http://www.opengis.net/ont/sf#MultiPoint">sf:MultiPoint</a><br/>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E5_Event">crm:E5_Event</a><br/>
+                    <a href="http://www.opengis.net/ont/geosparql#Feature">geosparql:Feature</a><br/>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E39_Actor">crm:E39_Actor</a><br/>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E55_Type">crm:E55_Type</a><br/>
+                    <a href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a><br/>
+                    <a href="#DataDragonCollection">Data Dragon Collection</a><br/>
+                    <a href="#RepositoryType">Repository Type</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Collection">
+        <h3>
+          Collection<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Collection" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#Collection</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A meaningful collection of concepts.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E1_CRM_Entity">crm:E1_CRM_Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#DataDragonCollection">Data Dragon Collection</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Concept1">
+        <h3>
+          Concept<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Concept1" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#Concept</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>The class skos:Concept is the class of SKOS concepts.</p>
+<p>A SKOS concept can be viewed as an idea or notion; a unit of thought. However, what constitutes a unit of thought is subjective, and this definition is meant to be suggestive, rather than restrictive.</p>
+<p>The notion of a SKOS concept is useful when describing the conceptual or intellectual structure of a knowledge organization system, and when referring to specific ideas or meanings established within a KOS.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E1_CRM_Entity">crm:E1_CRM_Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E55_Type">crm:E55_Type</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DataDragonItem">Data Dragon Item</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ConceptScheme">
+        <h3>
+          Concept Scheme<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#ConceptScheme" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#ConceptScheme</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A set of concepts, optionally including statements about semantic relationships between those concepts.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E1_CRM_Entity">crm:E1_CRM_Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#DataDragonLair">Data Dragon Lair</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Activity">
+        <h3>
+          Activity<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Activity" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#Activity</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E5_Event">crm:E5_Event</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Agent">
+        <h3>
+          Agent<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Agent" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#Agent</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#ActorEntity">Actor Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://xmlns.com/foaf/0.1/Organization">foaf:Organization</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://xmlns.com/foaf/0.1/Group">foaf:Group</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#SoftwareAgent">prov:SoftwareAgent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Entity">
+        <h3>
+          Entity<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Entity" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#Entity</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://www.w3.org/2000/01/rdf-schema#Resource">https://www.w3.org/2000/01/rdf-schema#Resource</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E1_CRM_Entity">crm:E1_CRM_Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Organisation">
+        <h3>
+          Organisation<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Organisation" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#Organization</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://xmlns.com/foaf/0.1/Organization">foaf:Organization</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Person">
+        <h3>
+          Person<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Person" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#Person</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="SoftwareAgent">
+        <h3>
+          Software Agent<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#SoftwareAgent" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#SoftwareAgent</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Agent">prov:Agent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Group">
+        <h3>
+          Group<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Group" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://xmlns.com/foaf/0.1/Group</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>The Group class represents a collection of individual agents (and may itself play the role of a Agent, ie. something that can perform actions).</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Agent">prov:Agent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Organization">
+        <h3>
+          Organization<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Organization" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://xmlns.com/foaf/0.1/Organization</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Organisation</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Agent">prov:Agent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Organization">prov:Organization</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Person1">
+        <h3>
+          Person<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Person1" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://xmlns.com/foaf/0.1/Person</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>The Person class represents people. Something is a Person if it is a person. We don't nitpic about whether they're alive, dead, real, or imaginary. The Person class is a sub-class of the Agent class, since all people are considered 'agents' in FOAF.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Agent">prov:Agent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Person">prov:Person</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Project">
+        <h3>
+          Project<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Project" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://xmlns.com/foaf/0.1/Project</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.cidoc-crm.org/cidoc-crm/E5_Event">crm:E5_Event</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Place1">
+        <h3>
+          Place<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Place1" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://pleiades.stoa.org/places/vocab#Place</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Places are instances of skos:Concept as well as contexts for Locations and Names.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.opengis.net/ont/geosparql#SpatialObject">geosparql:SpatialObject</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#Place">Place</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Resource">
+        <h3>
+          Resource<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Resource" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://www.w3.org/2000/01/rdf-schema#Resource</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>The class resource, everything.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+<section id="objectproperties">
+    <h2>Object Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#haspointgeometry">has point geometry</a></li>
+        <li><a href="#placeofinterest(POI)">place of interest (POI)</a></li>
+        <li><a href="#centroid">centroid</a></li>
+        <li><a href="#clusteredArea">clusteredArea</a></li>
+        <li><a href="#exactMatch">exactMatch</a></li>
+        <li><a href="#hasbroaderitem">has broader item</a></li>
+        <li><a href="#hasEPSGcode">has EPSG code</a></li>
+        <li><a href="#hasexactgeometry">has exact geometry</a></li>
+        <li><a href="#haslegaltype">has legal type</a></li>
+        <li><a href="#hasnarroweritem">has narrower item</a></li>
+        <li><a href="#hasquality">has quality</a></li>
+        <li><a href="#hastype">has type</a></li>
+        <li><a href="#isindragonlair">is in dragon lair</a></li>
+        <li><a href="#lairgroup">lair group</a></li>
+        <li><a href="#lairstate">lair state</a></li>
+        <li><a href="#language">language</a></li>
+        <li><a href="#locatedAt">locatedAt</a></li>
+        <li><a href="#hasGeometry">hasGeometry</a></li>
+        <li><a href="#sameas">same as</a></li>
+        <li><a href="#hasbroadermatch">has broader match</a></li>
+        <li><a href="#hasbroader">has broader</a></li>
+        <li><a href="#hasbroadertransitive">has broader transitive</a></li>
+        <li><a href="#hasclosematch">has close match</a></li>
+        <li><a href="#hasexactmatch">has exact match</a></li>
+        <li><a href="#isinscheme">is in scheme</a></li>
+        <li><a href="#isinmappingrelationwith">is in mapping relation with</a></li>
+        <li><a href="#hasnarrowermatch">has narrower match</a></li>
+        <li><a href="#hasnarrower">has narrower</a></li>
+        <li><a href="#hasnarrowertransitive">has narrower transitive</a></li>
+        <li><a href="#hasrelated">has related</a></li>
+        <li><a href="#hasrelatedmatch">has related match</a></li>
+        <li><a href="#isinsemanticrelationwith">is in semantic relation with</a></li>
+        <li><a href="#actedonbehalfof">acted on behalf of</a></li>
+        <li><a href="#used">used</a></li>
+        <li><a href="#wasassociatedwith">was associated with</a></li>
+        <li><a href="#wasattributedto">was attributed to</a></li>
+        <li><a href="#wasderivedfrom">was derived from</a></li>
+        <li><a href="#wasganeratedby">was ganerated by</a></li>
+        <li><a href="#wasinformedby">was informed by</a></li>
+        <li><a href="#exactmatch">exact match</a></li>
+    </ul>
+    <div class="entity property" id="haspointgeometry">
+        <h3>has point geometry<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#haspointgeometry" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/hasPointGeometry</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>c.f. https://www.ogc.org/standards/geosparql, 1.0, OGC GeoSPARQL - A Geographic Query Language for RDF Data, 11-052r4, Annex B, B.1</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.opengis.net/ont/geosparql#hasGeometry">geosparql:hasGeometry</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="placeofinterest(POI)">
+        <h3>place of interest (POI)<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#placeofinterest(POI)" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#PlaceOfInterest</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>c.f. https://www.ogc.org/standards/geosparql, 1.0, OGC GeoSPARQL - A Geographic Query Language for RDF Data, 11-052r4, Annex B, B.1</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.opengis.net/ont/geosparql#hasGeometry">geosparql:hasGeometry</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="centroid">
+        <h3>centroid<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#centroid" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#centroid</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://archaeology.link/hasPointGeometry">http://archaeology.link/hasPointGeometry</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="clusteredArea">
+        <h3>clusteredArea<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#clusteredArea" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#clusteredArea</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="#hasexactgeometry">has exact geometry</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="exactMatch">
+        <h3>exactMatch<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#exactMatch" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#exactMatch</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>exact match</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.wikidata.org/prop/direct/P2888">wdt:P2888</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasbroaderitem">
+        <h3>has broader item<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#hasbroaderitem" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#hasBroaderItem</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#broader">skos:broader</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasEPSGcode">
+        <h3>has EPSG code<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#hasEPSGcode" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#hasEPSG</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>a geometry in a EPSG code</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasexactgeometry">
+        <h3>has exact geometry<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#hasexactgeometry" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#hasExactGeometry</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>c.f. https://www.ogc.org/standards/geosparql, 1.0, OGC GeoSPARQL - A Geographic Query Language for RDF Data, 11-052r4, Annex B, B.1</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.opengis.net/ont/geosparql#hasGeometry">geosparql:hasGeometry</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="haslegaltype">
+        <h3>has legal type<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#haslegaltype" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#hasLegalType</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>legal type of a data repository</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#DataDragonLair">Data Dragon Lair</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://archaeology.link/ontology#RepositoryLegalType">RepositoryLegalType</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasnarroweritem">
+        <h3>has narrower item<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#hasnarroweritem" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#hasNarrowerItem</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#narrower">skos:narrower</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasquality">
+        <h3>has quality<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#hasquality" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#hasQuality</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>fuzzy quality of a data repository</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#DataDragonLair">Data Dragon Lair</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://archaeology.link/ontology#RepositoryQuality">RepositoryQuality</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hastype">
+        <h3>has type<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#hastype" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#hasType</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>type of a data repository</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#DataDragonLair">Data Dragon Lair</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://archaeology.link/ontology#RepositoryType">RepositoryType</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="isindragonlair">
+        <h3>is in dragon lair<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#isindragonlair" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#inLair</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="lairgroup">
+        <h3>lair group<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#lairgroup" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#lairGroup</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>data repository belongs to group X</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#DataDragonLair">Data Dragon Lair</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://archaeology.link/ontology#RepositoryGroup">RepositoryGroup</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="lairstate">
+        <h3>lair state<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#lairstate" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#lairState</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>status of a data repository (data dragon lair)</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2002/07/owl#topObjectProperty">owl:topObjectProperty</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#DataDragonLair">Data Dragon Lair</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://archaeology.link/ontology#RepositoryState">RepositoryState</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="language">
+        <h3>language<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#language" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#language</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>main language of a thing</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2002/07/owl#Thing">owl:Thing</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://archaeology.link/ontology#RepositoryLanguage">RepositoryLanguage</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="locatedAt">
+        <h3>locatedAt<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#locatedAt" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#locatedAt</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://archaeology.link/hasPointGeometry">http://archaeology.link/hasPointGeometry</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasGeometry">
+        <h3>hasGeometry<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#hasGeometry" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.opengis.net/ont/geosparql#hasGeometry</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.opengis.net/ont/geosparql#hasGeometry">geosparql:hasGeometry</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="sameas">
+        <h3>same as<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#sameas" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2002/07/owl#sameAs</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>The property that determines that two given individuals are equal.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2002/07/owl#Thing">owl:Thing</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2002/07/owl#Thing">owl:Thing</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasbroadermatch">
+        <h3>has broader match<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#hasbroadermatch" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#broadMatch</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#broader">skos:broader</a><sup class="sup-op" title="object property">op</sup>
+                    <a href="http://www.w3.org/2004/02/skos/core#mappingRelation">skos:mappingRelation</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasbroader">
+        <h3>has broader<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#hasbroader" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#broader</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#broaderTransitive">skos:broaderTransitive</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasbroadertransitive">
+        <h3>has broader transitive<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#hasbroadertransitive" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#broaderTransitive</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#semanticRelation">skos:semanticRelation</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasclosematch">
+        <h3>has close match<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#hasclosematch" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#closeMatch</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#mappingRelation">skos:mappingRelation</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasexactmatch">
+        <h3>has exact match<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#hasexactmatch" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#exactMatch</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2002/07/owl#sameAs">owl:sameAs</a><sup class="sup-op" title="object property">op</sup>
+                    <a href="http://www.w3.org/2004/02/skos/core#closeMatch">skos:closeMatch</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="isinscheme">
+        <h3>is in scheme<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#isinscheme" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#inScheme</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Relates a resource (for example a concept) to a concept scheme in which it is included.</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="isinmappingrelationwith">
+        <h3>is in mapping relation with<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#isinmappingrelationwith" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#mappingRelation</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#semanticRelation">skos:semanticRelation</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasnarrowermatch">
+        <h3>has narrower match<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#hasnarrowermatch" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#narrowMatch</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#mappingRelation">skos:mappingRelation</a><sup class="sup-op" title="object property">op</sup>
+                    <a href="http://www.w3.org/2004/02/skos/core#narrower">skos:narrower</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasnarrower">
+        <h3>has narrower<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#hasnarrower" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#narrower</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#narrowerTransitive">skos:narrowerTransitive</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasnarrowertransitive">
+        <h3>has narrower transitive<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#hasnarrowertransitive" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#narrowerTransitive</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#semanticRelation">skos:semanticRelation</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasrelated">
+        <h3>has related<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#hasrelated" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#related</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#semanticRelation">skos:semanticRelation</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasrelatedmatch">
+        <h3>has related match<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#hasrelatedmatch" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#relatedMatch</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#related">skos:related</a><sup class="sup-op" title="object property">op</sup>
+                    <a href="http://www.w3.org/2004/02/skos/core#mappingRelation">skos:mappingRelation</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="isinsemanticrelationwith">
+        <h3>is in semantic relation with<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#isinsemanticrelationwith" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#semanticRelation</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="actedonbehalfof">
+        <h3>acted on behalf of<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#actedonbehalfof" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#actedOnBehalfOf</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Delegation is the assignment of authority and responsibility to an agent (by itself or by another agent) to carry out a specific activity as a delegate or representative, while the agent it acts on behalf of retains some responsibility for the outcome of the delegated work.</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="used">
+        <h3>used<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#used" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#used</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Usage is the beginning of utilizing an entity by an activity. Before usage, the activity had not begun to utilize this entity and could not have been affected by the entity.</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wasassociatedwith">
+        <h3>was associated with<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#wasassociatedwith" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#wasAssociatedWith</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>An activity association is an assignment of responsibility to an agent for an activity, indicating that the agent had a role in the activity. It further allows for a plan to be specified, which is the plan intended by the agent to achieve some goals in the context of this activity.</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wasattributedto">
+        <h3>was attributed to<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#wasattributedto" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#wasAttributedTo</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Attribution is the ascribing of an entity to an agent.</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wasderivedfrom">
+        <h3>was derived from<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#wasderivedfrom" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#wasDerivedFrom</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wasganeratedby">
+        <h3>was ganerated by<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#wasganeratedby" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#wasGeneratedBy</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation.</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wasinformedby">
+        <h3>was informed by<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#wasinformedby" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#wasInformedBy</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Communication is the exchange of some unspecified entity by two activities, one activity using some entity generated by the other.</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="exactmatch">
+        <h3>exact match<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#exactmatch" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.wikidata.org/prop/direct/P2888</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>(URLs only) used to link two items, indicating a high degree of confidence that the concepts can be used interchangeably</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#exactMatch">skos:exactMatch</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="datatypeproperties">
+    <h2>Datatype Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#APIendpoint">API endpoint</a></li>
+        <li><a href="#author">author</a></li>
+        <li><a href="#dateofentry">date of entry</a></li>
+        <li><a href="#dateofmodification">date of modification</a></li>
+        <li><a href="#description1">description</a></li>
+        <li><a href="#link">link</a></li>
+        <li><a href="#name">name</a></li>
+        <li><a href="#prefix">prefix</a></li>
+        <li><a href="#SPARQLendpoint">SPARQL endpoint</a></li>
+        <li><a href="#wikidataid">wikidataid</a></li>
+        <li><a href="#asGeoJSON">as GeoJSON</a></li>
+        <li><a href="#asWell-Known-Text">as Well-Known-Text</a></li>
+        <li><a href="#endedattime">ended at time</a></li>
+        <li><a href="#startedattime">started at time</a></li>
+    </ul>
+    <div class="entity property" id="APIendpoint">
+        <h3>API endpoint<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#APIendpoint" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#apiendpoint</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>URL of the API entrypoint</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="author">
+        <h3>author<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#author" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#author</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>author or inventor or right holder</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="dateofentry">
+        <h3>date of entry<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#dateofentry" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#dateOfEntry</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>the date of database entry</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="dateofmodification">
+        <h3>date of modification<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#dateofmodification" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#dateOfModification</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>the date of a modification</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="description1">
+        <h3>description<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#description1" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#description</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>a short description</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="link">
+        <h3>link<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#link" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#link</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>a link for further information</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="name">
+        <h3>name<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#name" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#name</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>a name</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="prefix">
+        <h3>prefix<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#prefix" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#prefix</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>prefix</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="SPARQLendpoint">
+        <h3>SPARQL endpoint<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#SPARQLendpoint" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#sparqlendpoint</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>URL of the SPARQL endpoint</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wikidataid">
+        <h3>wikidataid<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#wikidataid" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#wikidataid</code></td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="asGeoJSON">
+        <h3>as GeoJSON<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#asGeoJSON" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.opengis.net/ont/geosparql#asGeoJSON</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="asWell-Known-Text">
+        <h3>as Well-Known-Text<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#asWell-Known-Text" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.opengis.net/ont/geosparql#asWKT</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="endedattime">
+        <h3>ended at time<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#endedattime" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#endedAtTime</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>End is when an activity is deemed to have been ended by an entity, known as trigger. The activity no longer exists after its end. Any usage, generation, or invalidation involving an activity precedes the activity's end. An end may refer to a trigger entity that terminated the activity, or to an activity, known as ender that generated the trigger.</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="startedattime">
+        <h3>started at time<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#startedattime" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#startedAtTime</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Start is when an activity is deemed to have been started by an entity, known as trigger. The activity did not exist before its start. Any usage, generation, or invalidation involving an activity follows the activity's start. A start may refer to a trigger entity that set off the activity, or to an activity, known as starter, that generated the trigger.</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="annotationproperties">
+    <h2>Annotation Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#description">description</a></li>
+        <li><a href="#label">label</a></li>
+        <li><a href="#preferreddescription">preferred description</a></li>
+        <li><a href="#preferredlabel">preferred label</a></li>
+        <li><a href="#contributor">contributor</a></li>
+        <li><a href="#creator">creator</a></li>
+        <li><a href="#description1">description</a></li>
+        <li><a href="#publisher">publisher</a></li>
+        <li><a href="#rights">rights</a></li>
+        <li><a href="#subject">subject</a></li>
+        <li><a href="#alternativelabel">alternative label</a></li>
+        <li><a href="#definition">definition</a></li>
+        <li><a href="#prefLabel">preferred label</a></li>
+        <li><a href="#scopenote">scope note</a></li>
+    </ul>
+    <div class="entity property" id="description">
+        <h3>description<sup title="annotation property" class="sup-ap">ap</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#description" title="fragment link to here">#</a>&nbsp;<a href="#annotationproperties" title="Annotation Properties Index">APs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#desc</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="#preferreddescription">preferred description</a><sup class="sup-ap" title="annotation property">ap</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="label">
+        <h3>label<sup title="annotation property" class="sup-ap">ap</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#label" title="fragment link to here">#</a>&nbsp;<a href="#annotationproperties" title="Annotation Properties Index">APs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#label</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#altLabel">skos:altLabel</a><sup class="sup-ap" title="annotation property">ap</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="preferreddescription">
+        <h3>preferred description<sup title="annotation property" class="sup-ap">ap</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#preferreddescription" title="fragment link to here">#</a>&nbsp;<a href="#annotationproperties" title="Annotation Properties Index">APs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#prefDesc</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#scopeNote">skos:scopeNote</a><sup class="sup-ap" title="annotation property">ap</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="preferredlabel">
+        <h3>preferred label<sup title="annotation property" class="sup-ap">ap</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#preferredlabel" title="fragment link to here">#</a>&nbsp;<a href="#annotationproperties" title="Annotation Properties Index">APs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://archaeology.link/ontology#prefLabel</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#prefLabel">skos:prefLabel</a><sup class="sup-ap" title="annotation property">ap</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="contributor">
+        <h3>contributor<sup title="annotation property" class="sup-ap">ap</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#contributor" title="fragment link to here">#</a>&nbsp;<a href="#annotationproperties" title="Annotation Properties Index">APs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/elements/1.1/contributor</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="creator">
+        <h3>creator<sup title="annotation property" class="sup-ap">ap</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#creator" title="fragment link to here">#</a>&nbsp;<a href="#annotationproperties" title="Annotation Properties Index">APs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/elements/1.1/creator</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="description1">
+        <h3>description<sup title="annotation property" class="sup-ap">ap</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#description1" title="fragment link to here">#</a>&nbsp;<a href="#annotationproperties" title="Annotation Properties Index">APs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/elements/1.1/description</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="publisher">
+        <h3>publisher<sup title="annotation property" class="sup-ap">ap</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#publisher" title="fragment link to here">#</a>&nbsp;<a href="#annotationproperties" title="Annotation Properties Index">APs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/elements/1.1/publisher</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="rights">
+        <h3>rights<sup title="annotation property" class="sup-ap">ap</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#rights" title="fragment link to here">#</a>&nbsp;<a href="#annotationproperties" title="Annotation Properties Index">APs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/elements/1.1/rights</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="subject">
+        <h3>subject<sup title="annotation property" class="sup-ap">ap</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#subject" title="fragment link to here">#</a>&nbsp;<a href="#annotationproperties" title="Annotation Properties Index">APs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/elements/1.1/subject</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="alternativelabel">
+        <h3>alternative label<sup title="annotation property" class="sup-ap">ap</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#alternativelabel" title="fragment link to here">#</a>&nbsp;<a href="#annotationproperties" title="Annotation Properties Index">APs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#altLabel</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="definition">
+        <h3>definition<sup title="annotation property" class="sup-ap">ap</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#definition" title="fragment link to here">#</a>&nbsp;<a href="#annotationproperties" title="Annotation Properties Index">APs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#definition</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="prefLabel">
+        <h3>preferred label<sup title="annotation property" class="sup-ap">ap</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#prefLabel" title="fragment link to here">#</a>&nbsp;<a href="#annotationproperties" title="Annotation Properties Index">APs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#prefLabel</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="scopenote">
+        <h3>scope note<sup title="annotation property" class="sup-ap">ap</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#scopenote" title="fragment link to here">#</a>&nbsp;<a href="#annotationproperties" title="Annotation Properties Index">APs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#scopeNote</code></td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+  
+    <section id="namedindividuals">
+        <h2>Named Individuals <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+        <ul class="hlist">
+            <li><a href="#AdditionalInformationGroup">Additional Information Group</a></li>
+            <li><a href="#Administration">Administration</a></li>
+            <li><a href="#Collection1">Collection</a></li>
+            <li><a href="#Community">Community</a></li>
+            <li><a href="#CulturalHeritageThesauriGroup">Cultural Heritage Thesauri Group</a></li>
+            <li><a href="#Gazetteer">Gazetteer</a></li>
+            <li><a href="#OtherReferenceThesauriGroup">Other Reference Thesauri Group</a></li>
+            <li><a href="#PersonIndex">Person Index</a></li>
+            <li><a href="#ResearchInstitution">Research Institution</a></li>
+            <li><a href="#Thesaurus">Thesaurus</a></li>
+            <li><a href="#TimeGazetteer">Time Gazetteer</a></li>
+            <li><a href="#UnspecifiedGroup">Unspecified Group</a></li>
+            <li><a href="#active">active</a></li>
+            <li><a href="#deprecated">deprecated</a></li>
+            <li><a href="#deutsch">deutsch</a></li>
+            <li><a href="#english">english</a></li>
+            <li><a href="#franais">français</a></li>
+            <li><a href="#levelprimary">level primary</a></li>
+            <li><a href="#levelsecondary">level secondary</a></li>
+            <li><a href="#leveltertiary">level tertiary</a></li>
+            <li><a href="#qualityhigh">quality high</a></li>
+            <li><a href="#qualitylow">quality low</a></li>
+            <li><a href="#qualitymedium">quality medium</a></li>
+            <li><a href="#test">test</a></li>
+            <li><a href="#unknownlanguage">unknown language</a></li>
+        </ul>
+            <div class="entity named_individual" id="Administration">
+        <h3>Administration<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#Administration
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryLegalType">RepositoryLegalType</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="Collection1">
+        <h3>Collection<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#Collection
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryType">RepositoryType</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="Community">
+        <h3>Community<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#Community
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryLegalType">RepositoryLegalType</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="Gazetteer">
+        <h3>Gazetteer<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#Gazetteer
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryType">RepositoryType</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="PersonIndex">
+        <h3>Person Index<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#PersonIndex
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryType">RepositoryType</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="ResearchInstitution">
+        <h3>Research Institution<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#ResearchInstitution
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryLegalType">RepositoryLegalType</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="Thesaurus">
+        <h3>Thesaurus<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#Thesaurus
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryType">RepositoryType</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="TimeGazetteer">
+        <h3>Time Gazetteer<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#TimeGazetteer
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryType">RepositoryType</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="active">
+        <h3>active<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#active
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryState">RepositoryState</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="AdditionalInformationGroup">
+        <h3>Additional Information Group<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#additionalinformationGroup
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryGroup">RepositoryGroup</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="CulturalHeritageThesauriGroup">
+        <h3>Cultural Heritage Thesauri Group<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#chreferencethesauriGroup
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryGroup">RepositoryGroup</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="deutsch">
+        <h3>deutsch<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#de
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryLanguage">RepositoryLanguage</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="deprecated">
+        <h3>deprecated<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#deprecated
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryState">RepositoryState</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="english">
+        <h3>english<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#en
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryLanguage">RepositoryLanguage</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="franais">
+        <h3>français<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#fr
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryLanguage">RepositoryLanguage</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="levelprimary">
+        <h3>level primary<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#levelPrimary
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryLevel">RepositoryLevel</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="levelsecondary">
+        <h3>level secondary<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#levelSecondary
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryLevel">RepositoryLevel</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="leveltertiary">
+        <h3>level tertiary<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#levelTertiary
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryLevel">RepositoryLevel</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="OtherReferenceThesauriGroup">
+        <h3>Other Reference Thesauri Group<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#otherreferencethesauriGroup
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryGroup">RepositoryGroup</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="qualityhigh">
+        <h3>quality high<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#qualityHigh
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryQuality">RepositoryQuality</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="qualitylow">
+        <h3>quality low<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#qualityLow
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryQuality">RepositoryQuality</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="qualitymedium">
+        <h3>quality medium<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#qualityMedium
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryQuality">RepositoryQuality</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="test">
+        <h3>test<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#testStatus
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryState">RepositoryState</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="unknownlanguage">
+        <h3>unknown language<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#unknownLanguage
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryLanguage">RepositoryLanguage</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="UnspecifiedGroup">
+        <h3>Unspecified Group<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://archaeology.link/ontology#unspecifiedGroup
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://archaeology.link/ontology#RepositoryGroup">RepositoryGroup</a><br/>
+            </dd>
+        </table>
+    </div>
+    </section>
+
+  <section id="namespaces">
+    <h2>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <dl>
+        <dt>default (:)</dt>
+        <dd><code>http://archaeology.link/ontology#</code></dd>
+        <dt>amt</dt>
+        <dd><code>http://academic-meta-tool.xyz/vocab#</code></dd>
+        <dt>crm</dt>
+        <dd><code>http://www.cidoc-crm.org/cidoc-crm/</code></dd>
+        <dt>dc</dt>
+        <dd><code>http://purl.org/dc/elements/1.1/</code></dd>
+        <dt>dct</dt>
+        <dd><code>http://purl.org/dc/terms/</code></dd>
+        <dt>foaf</dt>
+        <dd><code>http://xmlns.com/foaf/0.1/</code></dd>
+        <dt>geosparql</dt>
+        <dd><code>http://www.opengis.net/ont/geosparql#</code></dd>
+        <dt>owl</dt>
+        <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
+        <dt>prov</dt>
+        <dd><code>http://www.w3.org/ns/prov#</code></dd>
+        <dt>rdf</dt>
+        <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
+        <dt>rdfs</dt>
+        <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+        <dt>sdo</dt>
+        <dd><code>http://schema.org/</code></dd>
+        <dt>sf</dt>
+        <dd><code>http://www.opengis.net/ont/sf#</code></dd>
+        <dt>skos</dt>
+        <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
+        <dt>wd</dt>
+        <dd><code>http://www.wikidata.org/entity/</code></dd>
+        <dt>wdt</dt>
+        <dd><code>http://www.wikidata.org/prop/direct/</code></dd>
+        <dt>wikibase</dt>
+        <dd><code>http://wikiba.se/ontology#</code></dd>
+        <dt>xsd</dt>
+        <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
+    </dl>
+</section>
+  <section id="legend">
+      <h2>Legend</h2>
+      <table class="entity">
+          <tr><td><sup class="sup-c" title="Classes">c</sup></td><td>Classes</td></tr>
+          <tr><td><sup class="sup-op" title="Object Properties">op</sup></td><td>Object Properties</td></tr>
+          <tr><td><sup class="sup-fp" title="Functional Properties">fp</sup></td><td>Functional Properties</td></tr>
+          <tr><td><sup class="sup-dp" title="Data Properties">dp</sup></td><td>Data Properties</td></tr>
+          <tr><td><sup class="sup-ap" title="Annotation Properties">dp</sup></td><td>Annotation Properties</td></tr>
+          <tr><td><sup class="sup-p" title="Properties">p</sup></td><td>Properties</td></tr>
+          <tr><td><sup class="sup-ni" title="Named Individuals">ni</sup></td><td>Named Individuals</td></tr>
+      </table>
+  </section>
+</body>
+</html>
