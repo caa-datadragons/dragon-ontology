@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it as below.
+authors:
+  - family-names: Thiery
+    given-names: Florian
+    orcid: https://orcid.org/0000-0002-3246-3531
+title: "The Data Dragon Ontology"
+version: 1.0
+type: dataset
+identifiers:
+  - description: This is the collection of archived snapshots of all versions of CeraTyOnt
+    type: doi
+    value: "10.5281/zenodo.TBD"
+  - description: This is the archived snapshot of version 0.1 of the Data Dragon Ontology
+    type: doi
+    value: "10.5281/zenodo.TBD"
+date-released: 2021-12-10
+license: cc-by-4.0
+repository-code: "https://github.com/caa-datadragons/dragon-ontology"
+keywords:
+  - "Data Dragon"
+  - "Linked Open Data"
+contact:
+  - affiliation: "RGZM, Mainz, Germany"
+    email: thiery@rgzm.de
+    family-names: Florian
+    given-names: Thiery
+preferred-citation:
+  authors:
+    - family-names: Thiery
+      given-names: Florian
+  title: "The Data Dragon Ontology"
+  type: ontology
+  year: 2021
