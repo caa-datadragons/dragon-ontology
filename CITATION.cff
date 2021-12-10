@@ -8,12 +8,12 @@ title: "The Data Dragon Ontology"
 version: 1.0
 type: dataset
 identifiers:
-  - description: This is the collection of archived snapshots of all versions of CeraTyOnt
+  - description: This is the collection of archived snapshots of all versions of the Data Dragon Ontology
     type: doi
-    value: "10.5281/zenodo.TBD"
-  - description: This is the archived snapshot of version 0.1 of the Data Dragon Ontology
+    value: "10.5281/zenodo.5771731"
+  - description: This is the archived snapshot of version 1.0 of the Data Dragon Ontology
     type: doi
-    value: "10.5281/zenodo.TBD"
+    value: "10.5281/zenodo.5771732"
 date-released: 2021-12-10
 license: cc-by-4.0
 repository-code: "https://github.com/caa-datadragons/dragon-ontology"
