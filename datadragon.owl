@@ -20,7 +20,7 @@
         <dc:subject>Data Dragons</dc:subject>
         <rdfs:comment>This ontology contains classes to descibe Data Dragons as Repository for Linked Data.</rdfs:comment>
         <rdfs:label>The Data Dragon Ontology</rdfs:label>
-        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.1</owl:versionInfo>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</owl:versionInfo>
     </owl:Ontology>
     
 
