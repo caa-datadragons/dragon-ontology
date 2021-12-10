@@ -289,6 +289,15 @@
     
 
 
+    <!-- http://archaeology.link/ontology#inLair -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#inLair">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+        <rdfs:label xml:lang="en">is in dragon lair</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://archaeology.link/ontology#lairGroup -->
 
     <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#lairGroup">
@@ -391,6 +400,15 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#sameAs"/>
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#closeMatch"/>
         <rdfs:label xml:lang="en">has exact match</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#inScheme -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#inScheme">
+        <rdfs:label xml:lang="en">is in scheme</rdfs:label>
+        <skos:definition xml:lang="en">Relates a resource (for example a concept) to a concept scheme in which it is included.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -735,10 +753,19 @@
     
 
 
+    <!-- http://archaeology.link/ontology#DataDragonCollection -->
+
+    <owl:Class rdf:about="http://archaeology.link/ontology#DataDragonCollection">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Collection"/>
+        <rdfs:label xml:lang="en">Data Dragon Collection</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://archaeology.link/ontology#DataDragonItem -->
 
     <owl:Class rdf:about="http://archaeology.link/ontology#DataDragonItem">
-        <rdfs:subClassOf rdf:resource="https://www.wikidata.org/wiki/Q73901520"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:label xml:lang="en">Data Dragon Item</rdfs:label>
         <skos:definition xml:lang="en">A repository item of a Data Dragon Lair.</skos:definition>
     </owl:Class>
@@ -748,7 +775,7 @@
     <!-- http://archaeology.link/ontology#DataDragonLair -->
 
     <owl:Class rdf:about="http://archaeology.link/ontology#DataDragonLair">
-        <rdfs:subClassOf rdf:resource="https://www.wikidata.org/wiki/Q73901520"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
         <rdfs:label>Data Dragon Lair</rdfs:label>
         <skos:definition xml:lang="en">A repository that stores Linked Open Data.</skos:definition>
     </owl:Class>
@@ -872,7 +899,7 @@ With the exception of E59 Primitive Value, all other classes within the CRM are 
     <!-- http://www.cidoc-crm.org/cidoc-crm/E39_Actor -->
 
     <owl:Class rdf:about="http://www.cidoc-crm.org/cidoc-crm/E39_Actor">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:subClassOf rdf:resource="http://archaeology.link/ontology#DataDragonItem"/>
         <rdfs:label xml:lang="en">Actor</rdfs:label>
         <skos:definition xml:lang="en">This class comprises people, either individually or in groups, who have the potential to perform intentional actions of kinds for which someone may be held responsible. The CRM does not attempt to model the inadvertent actions of such actors. Individual people should be documented as instances of E21 Person, whereas groups should be documented as instances of either E74 Group or its subclass E40 Legal Body.</skos:definition>
     </owl:Class>
@@ -882,7 +909,7 @@ With the exception of E59 Primitive Value, all other classes within the CRM are 
     <!-- http://www.cidoc-crm.org/cidoc-crm/E53_Place -->
 
     <owl:Class rdf:about="http://www.cidoc-crm.org/cidoc-crm/E53_Place">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:subClassOf rdf:resource="http://archaeology.link/ontology#DataDragonItem"/>
         <rdfs:label xml:lang="en">Place</rdfs:label>
         <skos:definition xml:lang="en">This class comprises extents in space, in particular on the surface of the earth, in the pure sense of physics: independent from temporal phenomena and matter.
         The instances of E53 Place are usually determined by reference to the position of “immobile” objects such as buildings, cities, mountains, rivers, or dedicated geodetic marks. A Place can be determined by combining a frame of reference and a location with respect to this frame. It may be identified by one or more instances of E44 Place Appellation.
@@ -905,7 +932,7 @@ With the exception of E59 Primitive Value, all other classes within the CRM are 
     <!-- http://www.cidoc-crm.org/cidoc-crm/E5_Event -->
 
     <owl:Class rdf:about="http://www.cidoc-crm.org/cidoc-crm/E5_Event">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:subClassOf rdf:resource="http://archaeology.link/ontology#DataDragonItem"/>
         <rdfs:label xml:lang="en">Event</rdfs:label>
     </owl:Class>
     
@@ -992,6 +1019,16 @@ With the exception of E59 Primitive Value, all other classes within the CRM are 
     
 
 
+    <!-- http://www.w3.org/2004/02/skos/core#Collection -->
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Collection">
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E1_CRM_Entity"/>
+        <rdfs:label xml:lang="en">Collection</rdfs:label>
+        <skos:definition xml:lang="en">A meaningful collection of concepts.</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- http://www.w3.org/2004/02/skos/core#Concept -->
 
     <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept">
@@ -1002,6 +1039,16 @@ With the exception of E59 Primitive Value, all other classes within the CRM are 
 A SKOS concept can be viewed as an idea or notion; a unit of thought. However, what constitutes a unit of thought is subjective, and this definition is meant to be suggestive, rather than restrictive.
 
 The notion of a SKOS concept is useful when describing the conceptual or intellectual structure of a knowledge organization system, and when referring to specific ideas or meanings established within a KOS.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#ConceptScheme -->
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptScheme">
+        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E1_CRM_Entity"/>
+        <rdfs:label xml:lang="en">Concept Scheme</rdfs:label>
+        <skos:definition xml:lang="en">A set of concepts, optionally including statements about semantic relationships between those concepts.</skos:definition>
     </owl:Class>
     
 
@@ -1115,26 +1162,6 @@ The notion of a SKOS concept is useful when describing the conceptual or intelle
     <owl:Class rdf:about="https://www.w3.org/2000/01/rdf-schema#Resource">
         <rdfs:label xml:lang="en">Resource</rdfs:label>
         <skos:definition xml:lang="en">The class resource, everything.</skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- https://www.wikidata.org/wiki/Q1235234 -->
-
-    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q1235234">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:comment>digital archive of documents; database of digital research outputs</rdfs:comment>
-        <rdfs:label>Document Repository</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://www.wikidata.org/wiki/Q73901520 -->
-
-    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q73901520">
-        <rdfs:subClassOf rdf:resource="https://www.wikidata.org/wiki/Q1235234"/>
-        <rdfs:comment>RDF Repository containing interesting Linked Open Data</rdfs:comment>
-        <rdfs:label xml:lang="en">Data Dragon Lair</rdfs:label>
     </owl:Class>
     
 
